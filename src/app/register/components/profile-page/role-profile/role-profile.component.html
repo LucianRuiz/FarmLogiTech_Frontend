@@ -1,0 +1,25 @@
+<app-toolbar-farm></app-toolbar-farm>
+<div class="profile-card">
+  <div class="profile-info-card">
+    <div class="profile-image-container">
+      <img *ngIf="currentProfile.role === 'farmer'; else otherRole" src="assets/farmer-profile.png" alt="Profile Image">
+      <ng-template #otherRole>
+        <img src="assets/bussiness-owner.png" alt="Profile Image">
+      </ng-template>
+    </div>
+    <div class="profile-name" >
+      <h1>{{ currentProfile.firstName }} {{ currentProfile.lastName }}</h1>
+    </div>
+    <h2>{{ convertCamelCaseToSpace(currentProfile.role) | titlecase }}</h2>
+    <div class="profile-info">
+
+      <p><i class="fas fa-map-marker-alt"></i> {{ currentProfile.direction }}</p>
+      <p><i class="fas fa-phone"></i> {{ currentProfile.phone }}</p>
+      <p><i class="fas fa-venus-mars"></i> {{ currentProfile.gender }}</p>
+      <p><i class="fas fa-birthday-cake"></i> {{ currentProfile.dobDay }}/{{ currentProfile.dobMonth }}/{{ currentProfile.dobYear }}</p>
+      <p><i class="fas fa-id-card"></i> {{ currentProfile.documentNumber }}</p>
+      <p><i class="fas fa-id-badge"></i> {{ currentProfile.documentType }}</p>
+      <p><i class="fas fa-envelope"></i> {{ register.email }}</p>
+    </div>
+  </div>
+</div>

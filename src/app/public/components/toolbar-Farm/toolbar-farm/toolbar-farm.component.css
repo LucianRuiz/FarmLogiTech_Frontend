@@ -1,0 +1,186 @@
+/* Estilos generales */
+#header {
+  width: 97.50%;
+  height: 110px;
+  background-color: #276749;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  font-size: 22px;
+  font-family: Arial, sans-serif;
+  gap: 8px;
+
+}
+
+#menu ul li a {
+  display: block;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: white;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.img {
+  width: 90px;
+}
+
+.specifications-list ul {
+  list-style-type: disc;
+  margin-left: 0;
+  padding-left: 10px;
+}
+
+.logo p {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0;
+}
+
+#menu {
+  font-size: 20px;
+}
+
+#menu ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  margin-right: 10px;
+}
+
+button {
+  background-color: #45a049;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 5px 15px;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-family: Arial, sans-serif;
+}
+
+button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+.hamburger {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  background-color: #22503a;
+  color: white;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 767px) {
+  #header {
+    justify-content: space-between;
+    z-index: 10; /* Asegura que esté encima de otros elementos */
+
+  }
+
+  .hamburger {
+    display: block;
+    margin-right: 10px;
+  }
+  #menu {
+    position: absolute;
+    top: 100px; /* Ajusta según sea necesario para la posición inicial */
+    left: 0;
+    width: 100%;
+    background: none;
+    padding: 20px 0;
+    box-sizing: border-box;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, background 0.3s ease-out;
+    z-index: 1000; /* Asegura que esté encima de otros elementos */
+  }
+
+  #menu.active {
+    max-height: 100vh; /* Ocupa toda la altura de la pantalla */
+    background: #16392e;
+  }
+  #menu ul {
+    flex-direction: column;
+    margin-left: 0;
+    gap: 15px;
+  }
+
+  #header {
+    position: relative;
+    z-index: 1000;
+  }
+
+  /* Inputs */
+  .section-search {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .input-container {
+    width: 100%;
+  }
+
+  .input-container input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 5px;
+  }
+
+  /* Aumentar el ancho de la tarjeta */
+  .card {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+/* Estilos para pantallas grandes */
+@media (min-width: 768px) {
+  #menu {
+    position: static;
+    transform: translateX(0);
+    max-height: none;
+  }
+
+  #menu ul {
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-left: auto;
+    gap: 80px;
+    padding: 20px;
+  }
+
+  /* Inputs */
+  .section-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .input-container {
+    flex: 1;
+  }
+
+  .input-container input {
+    width: 100%;
+    padding: 8px;
+  }
+
+  /* Aumentar el ancho de la tarjeta */
+  .card {
+    width: calc(33.33% - 40px);
+    margin: 20px;
+  }
+}

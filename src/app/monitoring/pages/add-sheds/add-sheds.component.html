@@ -1,0 +1,49 @@
+<app-toolbar-farm/>
+<div class="main-container">
+
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav mode="side" opened>
+      <mat-nav-list>
+        <mat-toolbar>Shed</mat-toolbar>
+        <a mat-list-item routerLink="/monitoring/add-sheds">ADD SHED</a>
+        <a mat-list-item routerLink="/monitoring/list-sheds">LIST SHEDS</a>
+        <mat-divider></mat-divider>
+        <mat-toolbar>Animals</mat-toolbar>
+        <a mat-list-item routerLink="/monitoring/add-animals">ADD ANIMALS</a>
+        <a mat-list-item routerLink="/monitoring/animal-inventory">ANIMAL INVENTORY</a>
+        <a mat-list-item routerLink="/monitoring/feeding-record">FEEDING RECORD</a>
+        <mat-toolbar>Crops</mat-toolbar>
+        <a mat-list-item routerLink="/monitoring/cultivation-record">CULTIVATION RECORD</a>
+        <a mat-list-item routerLink="/monitoring/crop-inventory">CROP INVENTORY</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <form (ngSubmit)="saveShed()">
+        <div class="content-container">
+          <div class="form-container">
+            <div class="title-container">
+              <h2 class="title-add">ADD SHED</h2>
+            </div>
+            <div class="form-group">
+              <label>Shed Type</label>
+              <select [(ngModel)]="shed.shedType" (ngModelChange)="updateSpeciesOptions()" class="form-field" name="shedType" required>
+                <option value="Animals">Animals</option>
+                <option value="Crops">Crops</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Species</label>
+              <select [(ngModel)]="shed.species" class="form-field" name="species" required>
+                <option *ngFor="let option of speciesOptions" [value]="option">{{option}}</option>
+              </select>
+            </div>
+
+            <div class="button-container">
+              <button type="submit">Save</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

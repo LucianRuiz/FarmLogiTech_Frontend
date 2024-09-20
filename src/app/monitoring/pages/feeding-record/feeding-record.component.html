@@ -1,0 +1,80 @@
+<app-toolbar-farm/>
+<div class="main-container">
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav mode="side" opened>
+      <mat-nav-list>
+        <mat-toolbar>Shed</mat-toolbar>
+        <a mat-list-item routerLink="/monitoring/add-sheds">ADD SHED</a>
+        <a mat-list-item routerLink="/monitoring/list-sheds">LIST SHEDS</a>
+        <mat-divider></mat-divider>
+        <mat-toolbar>Animals</mat-toolbar>
+        <a mat-list-item routerLink="/monitoring/add-animals">ADD ANIMALS</a>
+        <a mat-list-item routerLink="/monitoring/animal-inventory">ANIMAL INVENTORY</a>
+        <a mat-list-item routerLink="/monitoring/feeding-record">FEEDING RECORD</a>
+        <mat-toolbar>Crops</mat-toolbar>
+        <a mat-list-item routerLink="/monitoring/cultivation-record">CULTIVATION RECORD</a>
+        <a mat-list-item routerLink="/monitoring/crop-inventory">CROP INVENTORY</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <form (ngSubmit)="saveFeeding()">
+        <div class="content-container">
+          <div class="form-container">
+            <div class="title-container">
+              <h2 class="title-add">FEEDING RECORD</h2>
+            </div>
+            <div class="form-group">
+              <label>Shed</label>
+              <select [(ngModel)]="feeding.shed" class="form-field" name="shed" required>
+                <option value="Shed 1">Shed 1</option>
+                <option value="Shed 2">Shed 2</option>
+                <option value="Shed 3">Shed 3</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Date</label>
+              <input [(ngModel)]="feeding.date" type="date" class="form-field" name="date" required>
+            </div>
+            <div class="form-group">
+              <label>Type of Food</label>
+              <input [(ngModel)]="feeding.typeFood" type="text" class="form-field" name="typeFood" required>
+            </div>
+            <div class="form-group">
+              <label>Amount of Food</label>
+              <input [(ngModel)]="feeding.amountFood" type="number" class="form-field" name="amountFood" required>
+            </div>
+            <div class="button-container">
+              <button type="submit">Save</button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="content-container">
+        <div class="form-container">
+          <div class="table-container">
+            <table>
+              <thead>
+              <tr>
+                <th>ID</th>
+                <th>Shed</th>
+                <th>Date</th>
+                <th>Type of Food</th>
+                <th>Amount of Food</th>
+              </tr>
+              </thead>
+              <tbody *ngIf="!isLoading">
+              <tr *ngFor="let feeding of filteredFeedings">
+                <td>{{feeding.id}}</td>
+                <td>{{feeding.shed}}</td>
+                <td>{{feeding.date}}</td>
+                <td>{{feeding.typeFood}}</td>
+                <td>{{feeding.amountFood}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

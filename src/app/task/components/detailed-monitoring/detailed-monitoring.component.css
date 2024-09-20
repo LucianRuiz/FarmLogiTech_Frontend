@@ -1,0 +1,111 @@
+/* Estilos generales */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white; /* Fondo de la página */
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Asegura que el contenedor ocupe al menos la altura de la ventana */
+  width: 100%;
+}
+
+.center-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.monitoring-cards-container, .emergency-cards-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.monitoring-card, .emergency-card {
+  margin: 60px; /* Aumenta el margen para separar más las tarjetas */
+  text-align: center;
+}
+
+.card-button {
+  border: none;
+  padding: 0;
+  background: none;
+  outline: none;
+  margin: 0;
+}
+
+.task-img, .weather-img, .emergency-img, .inventory-img {
+  width: 180px; /* Aumenta el tamaño de las imágenes */
+  height: 170px; /* Aumenta el tamaño de las imágenes */
+  background-color: transparent; /* Fondo transparente */
+}
+
+.card-title {
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px; /* Aumenta el margen superior para separar el texto de la imagen */
+  font-size: 1.5em; /* Aumenta el tamaño del texto */
+}
+
+.card-button:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+@media only screen and (max-width: 992px) {
+  .container {
+    flex-direction: column; /* Cambia la dirección de los elementos a vertical */
+    height: auto; /* Elimina la altura fija para que el contenido pueda expandirse según su contenido */
+  }
+
+  .monitoring-cards-container, .emergency-cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .monitoring-card, .emergency-card {
+    margin: 40px 0; /* Añade más espacio en la parte superior e inferior de las tarjetas */
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .task-img, .weather-img, .emergency-img, .inventory-img {
+    width: 150px; /* Ajusta el tamaño de las imágenes para pantallas medianas */
+    height: 150px; /* Ajusta el tamaño de las imágenes para pantallas medianas */
+  }
+
+  .card-title {
+    font-size: 1.3em; /* Ajusta el tamaño del texto en pantallas medianas */
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .container {
+    padding: 10px; /* Añade padding en pantallas muy pequeñas */
+  }
+
+  .monitoring-card, .emergency-card {
+    margin: 20px; /* Ajusta el margen en pantallas muy pequeñas */
+  }
+
+  .monitoring-cards-container, .emergency-cards-container {
+    margin-bottom: 20px; /* Ajusta el margen inferior en pantallas muy pequeñas */
+  }
+
+  .task-img, .weather-img, .emergency-img, .inventory-img {
+    width: 120px; /* Reduce el tamaño de las imágenes en pantallas pequeñas */
+    height: 120px; /* Reduce el tamaño de las imágenes en pantallas pequeñas */
+  }
+
+  .card-title {
+    font-size: 1.2em; /* Ajusta el tamaño del texto en pantallas pequeñas */
+  }
+}
